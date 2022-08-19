@@ -88,7 +88,7 @@ class Database
         return $this->stmt->execute();
     }
 
-    // Get result set as array of object nad this method get all record in the table  
+    // Get result set as array of object and this method get all record in the table  
     public function resultset()
     {
         $this->execute();

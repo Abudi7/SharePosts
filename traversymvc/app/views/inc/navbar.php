@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo URLROOT; ?>">Home</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo URLROOT; ?>"><i class='fas fa-home'></i> Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About US</a>
@@ -18,13 +18,21 @@
 
         </ul>
         <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+        <?php if(isset($_SESSION['user_id'])) : ?>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo URLROOT; ?>/users/register">Register</a>
-          </li>
+              <a class="nav-link" href="#">Welcome <?php echo $_SESSION['user_name']; ?></a>
+            </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
-          </li>
-
+              <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"><i class='fas fa-sign-out-alt'></i> Logout</a>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/users/register"><i class='fas fa-user-alt'></i> Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/users/login"><i class='fas fa-sign-in-alt'></i> Login</a>
+            </li>
+          <?php endif; ?>
         </ul>
       </div>
     </div>
